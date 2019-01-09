@@ -115,8 +115,9 @@ namespace LiveCharts.Wpf.Points
                 HighToLowLine.X1 = center;
                 HighToLowLine.X2 = center;
 
+                double Abs = Math.Abs(Open - Close);
                 OpenToCloseRectangle.Width = Width;
-                OpenToCloseRectangle.Height = Math.Abs(Open - Close);
+                OpenToCloseRectangle.Height = Abs > 1 ? Abs : 1;
 
                 Canvas.SetTop(OpenToCloseRectangle, Math.Min(Open, Close));
                 Canvas.SetLeft(OpenToCloseRectangle, Left);
